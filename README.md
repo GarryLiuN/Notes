@@ -1,1 +1,3 @@
-# Notes\n A Repository for course notes
+# Notes
+
+A Repository for course notes
