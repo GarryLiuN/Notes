@@ -1,4 +1,4 @@
-# CS458 Midterm Review
+# CS458 Midterm Review S18
 
 ## Module 1 - Introduction
 
@@ -73,7 +73,55 @@ A flaw is a problem with a program. A **security flaw** is a problem that affect
 #### Type of flaws
 
 * Intentional/inherent
+  * Malicious
+    * -- intentionally inserted to attack systems
+    * Targeted: victim specified
+    * Non-targeted
+  * Non-malicious
+    * are meant to be in the system
+    * may cause failure when used by attacker
+    * e.g. backdoors
 * Unintentional
+  * Buffer overflow
+  * Ineger overflow
+  * Format string vulnerabilities
+  * Imcomplette mediation
+  * TOCTTOU errors
 
+#### Heartbleed in OpenSSL (April 2014)
+
+The Heartbleed bug allows the attacker to send malformed(long) messages to the server causing the server to reveal private information.
+
+#### Buffer Overflow
+
+* Target: programs with setuid(superuser) privileges
+* Method: Overwrite data past the end of an array(no boundary check); e.g. saved return address
+* Variants
+  * off-by-one
+  * overflow on the heap
+  * jump to other part of the program
+
+##### Defences
+
+* Programmer - bound checks
+* Stack randomization
+* Compiler - Canaries: padding between RET and data and modification will be detected
+* Memory: non-executable stack. memory are eith writable or executable but never both
+* OS: Virtual Memory
+
+#### Incomplete Mediation
+
+* Mostly web-based applications
+* Input from untrusted users
+* Request should be *meaningful* and be verified (**meditation**)
+* Incompleted Mediation
+  * application accepts incorret data
+  * may cause buffer overflow and SQL injection
+
+* Client-side meditation
+  * done by javascript
+  * Problems:
+    * Client-side javascript code can be  turned off/modified
+    * Communicate with server "manually/directly" without using client-side application
 
 ## Module 3 - Operaing System Security
